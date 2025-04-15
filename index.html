@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bingo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Bingo</h1>
+        
+        <div class="current-number">
+            <div id="currentDraw">--</div>
+        </div>
+
+        <div class="buttons">
+            <button id="drawButton">Sortear Número</button>
+            <button id="resetButton">Zerar</button>
+        </div>
+
+        <div class="numbers-grid">
+            <div class="column">
+                <h2>B</h2>
+                <div id="B-numbers" class="number-list"></div>
+            </div>
+            <div class="column">
+                <h2>I</h2>
+                <div id="I-numbers" class="number-list"></div>
+            </div>
+            <div class="column">
+                <h2>N</h2>
+                <div id="N-numbers" class="number-list"></div>
+            </div>
+            <div class="column">
+                <h2>G</h2>
+                <div id="G-numbers" class="number-list"></div>
+            </div>
+            <div class="column">
+                <h2>O</h2>
+                <div id="O-numbers" class="number-list"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

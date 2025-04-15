@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.current-number {
+    background-color: white;
+    border-radius: 10px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 300px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#currentDraw {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #333;
+}
+
+#drawButton {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#drawButton:hover {
+    background-color: #45a049;
+}
+
+#drawButton:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+#resetButton {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#resetButton:hover {
+    background-color: #c82333;
+}
+
+.numbers-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.column {
+    flex: 1;
+    min-width: 100px;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.column h2 {
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.number-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.number-list span {
+    padding: 0.5rem;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+}
+
+@media (max-width: 768px) {
+    .numbers-grid {
+        flex-direction: column;
+    }
+    
+    .column {
+        width: 100%;
+    }
+}
