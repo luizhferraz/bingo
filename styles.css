@@ -46,7 +46,7 @@ h1 {
 #drawButton {
     padding: 1rem 2rem;
     font-size: 1.2rem;
-    background-color: #4CAF50;
+    background-color: #4736b2;
     color: white;
     border: none;
     border-radius: 5px;
@@ -55,7 +55,7 @@ h1 {
 }
 
 #drawButton:hover {
-    background-color: #45a049;
+    background-color: #4736b2;
 }
 
 #drawButton:disabled {
