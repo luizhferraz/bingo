@@ -25,16 +25,22 @@ h1 {
 .current-number {
     background-color: white;
     border-radius: 10px;
-    padding: 2rem;
+    padding: 1.5rem;
     margin: 2rem auto;
-    max-width: 300px;
+    max-width: 500px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 #currentDraw {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: bold;
     color: #333;
+}
+
+#previousDraw {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #666;
 }
 
 #remainingNumbers {
@@ -93,6 +99,14 @@ h1 {
     flex-wrap: wrap;
 }
 
+.bingo-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
 .column {
     flex: 1;
     min-width: 100px;
@@ -107,6 +121,37 @@ h1 {
     margin-bottom: 1rem;
 }
 
+.number-display {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    align-items: stretch;
+}
+
+.number-display > div {
+    text-align: center;
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: #f8f8f8;
+}
+
+/* Estilo para o último número (maior) */
+.number-display > div:first-child {
+    flex: 2;
+}
+
+/* Estilo para o penúltimo número (menor) */
+.number-display > div:last-child {
+    flex: 1;
+}
+
+.number-display small {
+    color: #666;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
 .number-list {
     display: flex;
     flex-direction: column;
@@ -117,21 +162,72 @@ h1 {
     padding: 0.5rem;
     background-color: #f8f8f8;
     border-radius: 3px;
+    text-align: center;
 }
 
 .number-list span.last-drawn {
-    animation: blink 1s infinite;
+    background-color: #e6e6e6;
+    font-weight: bold;
 }
 
-@keyframes blink {
-    50% {
-        color: red;
-        background-color: black;
-    }
-    100% {
-        color: white;
-        background-color: red;
-    }
+.game-container {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.history-panel {
+    background-color: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 2rem auto 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    max-width: 800px;
+}
+
+.history-panel h3 {
+    color: #333;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.number-history {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 0.5rem;
+}
+
+.number-history span {
+    padding: 0.5rem 1rem;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    text-align: center;
+    min-width: 70px;
+}
+
+.history-section {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.letter-history {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.letter-history span {
+    padding: 0.5rem;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    text-align: center;
 }
 
 @media (max-width: 768px) {

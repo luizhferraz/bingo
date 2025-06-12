@@ -11,7 +11,16 @@
         <h1>Bingo</h1>
         
         <div class="current-number">
-            <div id="currentDraw">--</div>
+            <div class="number-display">
+                <div>
+                    <small>Último:</small>
+                    <div id="currentDraw">--</div>
+                </div>
+                <div>
+                    <small>Penúltimo:</small>
+                    <div id="previousDraw">--</div>
+                </div>
+            </div>
             <div id="remainingNumbers">Números restantes: 75</div>
         </div>
 
@@ -20,7 +29,7 @@
             <button id="resetButton">Zerar</button>
         </div>
 
-        <div class="numbers-grid">
+        <div class="bingo-container">
             <div class="column">
                 <h2>B</h2>
                 <div id="B-numbers" class="number-list"></div>

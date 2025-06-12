@@ -2,12 +2,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const drawButton = document.getElementById('drawButton');
     const resetButton = document.getElementById('resetButton');
     const currentDraw = document.getElementById('currentDraw');
+    const previousDraw = document.getElementById('previousDraw');
     const remainingNumbers = document.getElementById('remainingNumbers');
     const drawnNumbers = new Set();
     const totalNumbers = 75;
 
-    // Variável para guardar o último número sorteado
     let lastDrawnNumber = null;
+    let previousDrawnNumber = null;
+    let lastDrawnText = null;
+    let previousDrawnText = null;
 
     function getBingoLetter(number) {
         if (number <= 15) return 'B';
@@ -29,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function updateColumnNumbers() {
-        clearColumns();
         const columnNumbers = {
             'B': [], 'I': [], 'N': [], 'G': [], 'O': []
         };
@@ -44,11 +46,10 @@ document.addEventListener('DOMContentLoaded', function() {
         for (const letter in columnNumbers) {
             const numbers = columnNumbers[letter].sort((a, b) => a - b);
             const column = document.getElementById(`${letter}-numbers`);
+            column.innerHTML = '';
             numbers.forEach(number => {
                 const span = document.createElement('span');
                 span.textContent = number;
-
-                // Agora, só o último número sorteado recebe a classe
                 if (number === lastDrawnNumber) {
                     span.classList.add('last-drawn');
                 }
@@ -60,6 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function drawNumber() {
         if (drawnNumbers.size >= totalNumbers) {
             currentDraw.textContent = 'FIM!';
+            previousDraw.textContent = lastDrawnText;
             drawButton.disabled = true;
             return;
         }
@@ -70,9 +72,20 @@ document.addEventListener('DOMContentLoaded', function() {
         } while (drawnNumbers.has(number));
 
         drawnNumbers.add(number);
-        lastDrawnNumber = number; // <- define o último sorteado
+        
+        // Atualiza o penúltimo número
+        previousDrawnNumber = lastDrawnNumber;
+        previousDrawnText = lastDrawnText;
+        if (previousDrawnText) {
+            previousDraw.textContent = previousDrawnText;
+        }
+
+        // Atualiza o último número
+        lastDrawnNumber = number;
         const letter = getBingoLetter(number);
-        currentDraw.textContent = `${letter}-${number}`;
+        lastDrawnText = `${letter}-${number}`;
+        currentDraw.textContent = lastDrawnText;
+        
         updateColumnNumbers();
         updateRemainingNumbers();
 
@@ -84,8 +97,12 @@ document.addEventListener('DOMContentLoaded', function() {
     function resetGame() {
         if (confirm('Tem certeza que deseja zerar o jogo?')) {
             drawnNumbers.clear();
-            lastDrawnNumber = null;  // Limpa o último sorteado
+            lastDrawnNumber = null;
+            previousDrawnNumber = null;
+            lastDrawnText = null;
+            previousDrawnText = null;
             currentDraw.textContent = '--';
+            previousDraw.textContent = '--';
             remainingNumbers.textContent = `Números restantes: ${totalNumbers}`;
             drawButton.disabled = false;
             clearColumns();
